@@ -84,7 +84,7 @@ Generating Interface stubs with `openapi-generator-maven-plugin` has proven doab
 * Before running into even more import problems due to outdated libraries. At that point I stopped. I think the problem come from the generator creating an entire java servlet instead of just interfaces and all libraries being outdated in the servlet, like last update 2016 outdated. I did not find an option to create just interfaces.
 * `jaxrs-jersey` has the same problems
 * `jaxrs-cxf` has the same problems
-* `jaxrs-spec` works, but only with non-reactive objects.
+* `jaxrs-spec` works due to being able to generate just the interfaces, but only with non-reactive objects.
 
 
 
