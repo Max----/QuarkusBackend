@@ -50,6 +50,7 @@ If you want to learn more about building native executables, please consult http
 ## Maxime's Doc
 
 ### TODO:
+* Turn reactive to blocking and fix /paths
 
 * Mix Api entre openapi et api generée
 
