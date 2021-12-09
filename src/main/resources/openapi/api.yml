@@ -120,7 +120,7 @@ paths:
         500:
           $ref: '#/components/responses/ServerError'
 
-  /customer/{id}/visit:
+  /customer/{id}/visit/{businessId}:
     parameters:
       - in: path
         name: id
@@ -128,17 +128,17 @@ paths:
         description: The customer ID
         schema:
           type: integer
+      - in: path
+        name: businessId
+        required: true
+        description: The business ID
+        schema:
+          type: integer
     put:
       operationId: addVisit
       tags:
         - Visit
       description: Registers a new visit
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Business'
       responses:
         200:
           description: Visit successfully recorded
@@ -159,7 +159,7 @@ paths:
         500:
           $ref: '#/components/responses/ServerError'
 
-  /customer/{id}/loyalty:
+  /customer/{id}/loyalty/{businessId}:
     parameters:
       - in: path
         name: id
@@ -167,17 +167,17 @@ paths:
         description: The customer ID
         schema:
           type: integer
+      - in: path
+        name: businessId
+        required: true
+        description: The business ID
+        schema:
+          type: integer
     get:
       operationId: getCustomerloyalty
       tags:
         - Customer
       description: Returns loyalty of a customer to a business
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Business'
       responses:
         200:
           description: The query is successful

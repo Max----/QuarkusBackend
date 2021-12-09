@@ -1,51 +1,61 @@
-package org.acme.application.service;
+package application.service;
 
 
 
-import org.acme.application.entity.BusinessEntity;
-import org.acme.application.mapper.BusinessMapper;
+import application.entity.BusinessEntity;
+import application.mapper.BusinessMapper;
 import org.openapitools.api.BusinessApi;
 import org.openapitools.model.Business;
 
-
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 
-
-@Path("business/{id}")
+@ApplicationScoped
+@Path("business")
 public class BusinessResource implements BusinessApi {
 
-    @Inject
-    BusinessMapper businessMapper;
+    //@Inject
+    //BusinessMapper businessMapper;
 
     @Override
-    public Business getBusinessMetadatas(Integer id) {
-        return businessMapper.toApi(BusinessEntity.findById(id));
-    }
-
-    @Override
+    @Transactional
     public Business createBusiness() {
         BusinessEntity business = new BusinessEntity();
         business.persist();
-        return businessMapper.toApi(business);
+        return BusinessMapper.toApi(business);
     }
 
     @Override
+    public Business getBusinessMetadatas(Integer id) {
+        BusinessEntity b = BusinessEntity.findById((long)id);
+        if (b == null) {
+            throw new NotFoundException();
+        }
+
+        return BusinessMapper.toApi(b);
+    }
+
+    @Override
+    @Transactional
     public Business updateBusinessMetadatas(Integer id, Business business) {
-        BusinessEntity entity = BusinessEntity.findById(id);
+        BusinessEntity entity = BusinessEntity.findById((long)id);
         if(entity == null) {
             throw new NotFoundException();
         }
 
         entity.setName(business.getName());
         entity.setEmail(business.getEmail());
-
-        return businessMapper.toApi(entity);
+        entity.persist();
+        return BusinessMapper.toApi(entity);
     }
 
     @Override
+    @Transactional
     public void deleteBusiness(Integer id) {
-        BusinessEntity entity = BusinessEntity.findById(id);
+        BusinessEntity entity = BusinessEntity.findById((long)id);
         if(entity == null) {
             throw new NotFoundException();
         }

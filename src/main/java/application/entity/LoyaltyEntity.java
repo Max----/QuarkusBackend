@@ -1,4 +1,4 @@
-package org.acme.application.entity;
+package application.entity;
 
 import io.quarkus.mongodb.panache.PanacheMongoEntity;
 import io.quarkus.mongodb.panache.common.MongoEntity;
@@ -31,4 +31,9 @@ public class LoyaltyEntity extends PanacheMongoEntity {
     public int getLoyaltyCounter(){
         return this.loyaltyCounter;
     }
+
+    public long getCustomerId(){ return this.customerId; }
+    public long getBusinessId(){ return this.businessId; }
+    public void setCustomerId(long customerId){ this.customerId = customerId; }
+    public void setBusinessId(long businessId){ this.businessId = businessId; }
 }

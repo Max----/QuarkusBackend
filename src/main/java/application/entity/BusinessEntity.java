@@ -1,15 +1,12 @@
-package org.acme.application.entity;
+package application.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import io.quarkus.runtime.annotations.RegisterForReflection;
 
 import javax.persistence.Cacheable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
 @Cacheable
-@RegisterForReflection
 public class BusinessEntity extends PanacheEntity {
 
     private String name;
@@ -25,7 +22,10 @@ public class BusinessEntity extends PanacheEntity {
     // return name as uppercase in the model
     public String getName(){ return this.name;}
     public String getEmail(){ return this.email;}
+    public long getId(){ return this.id; }
 
     public void setName(String newName){ this.name = newName;}
     public void setEmail(String newMail){ this.email = newMail;}
+    public void setId(long id){ this.id = id; }
+
 }

@@ -1,15 +1,12 @@
-package org.acme.application.entity;
+package application.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import io.quarkus.runtime.annotations.RegisterForReflection;
 
 import javax.persistence.Cacheable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
 @Cacheable
-@RegisterForReflection
 public class CustomerEntity extends PanacheEntity {
 
     public String firstName;
@@ -29,6 +26,7 @@ public class CustomerEntity extends PanacheEntity {
     public String getLastName(){ return this.lastName;}
     public String getEmail(){ return this.email;}
 
+    public void setId(long id){ this.id = id; }
     public void setFirstName(String newName){ this.firstName = newName;}
     public void setLastName(String newName){ this.lastName = newName;}
     public void setEmail(String newMail){ this.email = newMail;}
