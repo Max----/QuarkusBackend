@@ -25,7 +25,7 @@ paths:
     get:
       operationId: getCustomerMetadatas
       tags:
-        - Customer
+        - CustomerEntity
       description: Returns metadata of a customer
       responses:
         200:
@@ -33,7 +33,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Customer'
+                $ref: '#/components/schemas/CustomerEntity'
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -47,17 +47,17 @@ paths:
     put:
       operationId: updateCustomerMetadatas
       tags:
-        - Customer
+        - CustomerEntity
       description: Updates customer's metadata
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: '#/components/schemas/CustomerEntity'
       responses:
         200:
-          description: Customer successfully updated
+          description: CustomerEntity successfully updated
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -73,7 +73,7 @@ paths:
     delete:
       operationId: deleteCustomer
       tags:
-        - Customer
+        - CustomerEntity
       description: Deletes a customer
       responses:
         204:
@@ -109,7 +109,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Business'
+              $ref: '#/components/schemas/BusinessEntity'
       responses:
         200:
           description: Visit successfully recorded
@@ -137,21 +137,21 @@ paths:
     get:
       operationId: getCustomerloyalty
       tags:
-        - Customer
+        - CustomerEntity
       description: Returns loyalty of a customer to a business
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Business'
+              $ref: '#/components/schemas/BusinessEntity'
       responses:
         200:
           description: The query is successful
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Loyalty'
+                $ref: '#/components/schemas/LoyaltyEntity'
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -174,7 +174,7 @@ paths:
     get:
       operationId: getBusinessMetadatas
       tags:
-        - Business
+        - BusinessEntity
       description: Returns metadata of a business
       responses:
         200:
@@ -182,7 +182,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Business'
+                $ref: '#/components/schemas/BusinessEntity'
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -196,17 +196,17 @@ paths:
     put:
       operationId: updateBusinessMetadatas
       tags:
-        - Business
+        - BusinessEntity
       description: Updates business's metadata
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Business'
+              $ref: '#/components/schemas/BusinessEntity'
       responses:
         200:
-          description: Business successfully updated
+          description: BusinessEntity successfully updated
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -222,7 +222,7 @@ paths:
     delete:
       operationId: deleteBusiness
       tags:
-        - Business
+        - BusinessEntity
       description: Deletes a business
       responses:
         204:
@@ -245,7 +245,7 @@ paths:
 components:
   schemas:
     Customer:
-      description: Customer object
+      description: CustomerEntity object
       type: object
       properties:
         customerId:
@@ -262,7 +262,7 @@ components:
           type: string
           description: Email of customer
     Business:
-      description: Business object
+      description: BusinessEntity object
       type: object
       properties:
         businessId:
@@ -291,7 +291,7 @@ components:
           type: string
           description: Date of visit
     Loyalty:
-      description: Loyalty count of customer per business
+      description: LoyaltyEntity count of customer per business
       type: object
       properties:
         businessId:
@@ -355,7 +355,7 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
     BusinessError:
-      description: Business Application Error
+      description: BusinessEntity Application Error
       content:
         application/json:
           schema:

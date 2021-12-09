@@ -14,6 +14,31 @@ security:
   - IAMKeyAuthApplication: [ ]
 
 paths:
+  /customer/:
+    post:
+      operationId: createCustomer
+      tags:
+        - Customer
+      description: Creates customer
+      responses:
+        200:
+          description: Customer successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/AuthenticationError'
+        403:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/NotFound'
+        409:
+          $ref: '#/components/responses/BusinessError'
+        500:
+          $ref: '#/components/responses/ServerError'
   /customer/{id}:
     parameters:
       - in: path
@@ -58,6 +83,10 @@ paths:
       responses:
         200:
           description: Customer successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -113,6 +142,10 @@ paths:
       responses:
         200:
           description: Visit successfully recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Visit'
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -162,7 +195,31 @@ paths:
           $ref: '#/components/responses/NotFound'
         500:
           $ref: '#/components/responses/ServerError'
-
+  /business/:
+    post:
+      operationId: createBusiness
+      tags:
+        - Business
+      description: Creates business
+      responses:
+        200:
+          description: Business successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Business'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/AuthenticationError'
+        403:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/NotFound'
+        409:
+          $ref: '#/components/responses/BusinessError'
+        500:
+          $ref: '#/components/responses/ServerError'
   /business/{id}:
     parameters:
       - in: path
@@ -207,6 +264,10 @@ paths:
       responses:
         200:
           description: Business successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Business'
         400:
           $ref: '#/components/responses/BadRequest'
         401:
