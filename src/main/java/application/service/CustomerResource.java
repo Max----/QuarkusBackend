@@ -85,7 +85,27 @@ public class CustomerResource implements CustomerApi {
         }
         VisitEntity newVisit = new VisitEntity(id, businessId);
         newVisit.persist();
+
+        LoyaltyEntity loyaltyEntity = LoyaltyEntity.findLoyalty(id, businessId);
+        if (loyaltyEntity == null) {
+            LoyaltyEntity newLoyaltyEntity = new LoyaltyEntity(id, businessId);
+            newLoyaltyEntity.persist();
+        }else{
+            loyaltyEntity.incrementLoyalty();
+            loyaltyEntity.persist();
+        }
         return VisitMapper.toApi(newVisit);
+    }
+
+    private void incrementLoyalty(Integer id, Integer businessId){
+        LoyaltyEntity loyaltyEntity = LoyaltyEntity.findLoyalty(id, businessId);
+        if (loyaltyEntity == null) {
+            LoyaltyEntity newLoyaltyEntity = new LoyaltyEntity(id, businessId);
+            newLoyaltyEntity.persist();
+        }else{
+            loyaltyEntity.incrementLoyalty();
+            loyaltyEntity.persist();
+        }
     }
 }
 

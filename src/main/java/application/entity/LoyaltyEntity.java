@@ -3,7 +3,7 @@ package application.entity;
 import io.quarkus.mongodb.panache.PanacheMongoEntity;
 import io.quarkus.mongodb.panache.common.MongoEntity;
 
-@MongoEntity(collection="Loyalty")
+@MongoEntity(collection="loyalty")
 public class LoyaltyEntity extends PanacheMongoEntity {
 
     public long customerId;

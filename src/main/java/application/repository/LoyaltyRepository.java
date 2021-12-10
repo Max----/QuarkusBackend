@@ -1,7 +1,7 @@
 package application.repository;
 
-import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import application.entity.LoyaltyEntity;
+import io.quarkus.mongodb.panache.PanacheMongoRepository;
 
-public class LoyaltyRepository implements PanacheRepository<LoyaltyEntity> {
+public class LoyaltyRepository implements PanacheMongoRepository<LoyaltyEntity> {
 }

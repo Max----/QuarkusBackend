@@ -1,2 +1,2 @@
 INSERT INTO customerEntity(id, firstName, lastName, email) VALUES (nextval('hibernate_sequence'), 'Max', 'Pis', 'ok@email.com');
-INSERT INTO businessEntity(id, name, email) VALUES (nextval('hibernate_sequence'), 'Mcdo', 'mcdo@email.com');
+INSERT INTO businessEntity(id, name, email) VALUES (1, 'Mcdo', 'mcdo@email.com');
