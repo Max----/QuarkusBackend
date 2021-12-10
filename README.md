@@ -58,6 +58,12 @@ If you want to learn more about building native executables, please consult http
 
 * Mettre une DB en MangoDB *DONE*
 
+* Evaluer Speed + ram usage of native
+
+* Compare avec Spring native
+
+* Micronaut ??
+
 ### Findings
 
 Generating Interface stubs with `openapi-generator-maven-plugin` has proven doable for non reactive services, using `jaxrs-spec` as generator  with options `<additionalProperties>interfaceOnly=true,useSwaggerAnnotations=false</additionalProperties>` but to use Quarkus reactive features no generator provide a usable stub. 
