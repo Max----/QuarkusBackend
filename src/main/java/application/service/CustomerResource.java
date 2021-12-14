@@ -17,10 +17,22 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("customer")
 @ApplicationScoped
 public class CustomerResource implements CustomerApi {
+
+    @GET
+    @Path("/all")
+    @Produces({ "application/json" })
+    public List<Customer> allCustomer(){
+        List<Customer> customers = new ArrayList<>();
+        customers = CustomerEntity.findAll().stream().map(cus -> CustomerMapper.toApi((CustomerEntity) cus)).collect(Collectors.toList());
+        return customers;
+    }
 
     @Transactional
     @Override
