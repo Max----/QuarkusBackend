@@ -52,11 +52,17 @@ If you want to learn more about building native executables, please consult http
 ### TODO:
 * Turn reactive to blocking and fix /paths *DONE*
 
-* Mix Api entre openapi et api generée
+* Mix Api entre openapi et api generée *DONE*
 
 * Utiliser la generation d'interfaces *DONE*
 
 * Mettre une DB en MangoDB *DONE*
+
+* Evaluer Speed + ram usage of native
+
+* Compare avec Spring native
+
+* Micronaut ??
 
 ### Findings
 
@@ -87,6 +93,6 @@ Generating Interface stubs with `openapi-generator-maven-plugin` has proven doab
 
 A definitive way to generate code would be to create a branch of the generator and make our own small modification.
 
-I have trouble with mongoDB not properly working, but this has to do with my skills at setting up application properties and not with quarkus. Same deal with MapStruct I struggled with dependancy injections and ended up quickly manually implementing them.
+I have trouble with mongoDB not properly working, but this has to do with my lack of experience at setting up application properties and not with quarkus. Same deal with MapStruct I struggled with dependancy injections and ended up quickly manually implementing them. Both libraries do work as expected with quarkus, with exensive proof online.
 
 
