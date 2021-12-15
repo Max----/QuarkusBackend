@@ -45,6 +45,9 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 
 You can then execute your native executable with: `./target/test-1.0.0-SNAPSHOT-runner`
 
+Issues with packaging on Windows
+The Microsoft Native Tools for Visual Studio must first be initialized before packaging. You can do this by starting the x64 Native Tools Command Prompt that was installed with the Visual Studio Build Tools. At x64 Native Tools Command Prompt you can navigate to your project folder and run mvnw package -Pnative.
+
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
 ## Maxime's Doc
