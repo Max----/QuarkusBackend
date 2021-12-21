@@ -98,4 +98,25 @@ A definitive way to generate code would be to create a branch of the generator a
 
 I have trouble with mongoDB not properly working, but this has to do with my lack of experience at setting up application properties and not with quarkus. Same deal with MapStruct I struggled with dependancy injections and ended up quickly manually implementing them. Both libraries do work as expected with quarkus, with exensive proof online.
 
+### Evaluating peformance
+
+Start a postgres db in the official docker image with:
+
+```docker run -d --name myPostgres -e POSTGRES_PASSWORD=pass -p 5432:5432 postgres```
+
+Same for the MongoDb docker image except we need a replica set mongo image due to using transactions.
+* First create a dockerfile with
+
+```
+FROM mongo:latest
+RUN echo "rs.initiate();" > /docker-entrypoint-initdb.d/replica-init.js
+CMD [ "--replSet", "rs" ]
+```
+
+Build this dockerfile with `docker build ./ -t mongo:latest-replset` then run it:
+
+```docker run -d --name myMongo -p 27017:27017 mongo:latest-replset```
+
+
+
 
