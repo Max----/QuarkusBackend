@@ -117,6 +117,11 @@ Build this dockerfile with `docker build ./ -t mongo:latest-replset` then run it
 
 ```docker run -d --name myMongo -p 27017:27017 mongo:latest-replset```
 
+Then
 
-
+| Version | Boot time | Ram weight | Disk weight
+| --- | --- | --- | ---
+| Jar | 1.8 | 1.1MB but 110MB JVM | 40.3MB
+| Fat Jar | 2.042 | 1.1 MB but 150MB JVM | 40.7MB
+| Native | 0.674 | 44MB | 87.9 MB
 
