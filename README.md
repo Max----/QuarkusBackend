@@ -125,3 +125,11 @@ Then
 | Fat Jar | 2.042 | 1.1 MB but 150MB JVM | 40.7MB
 | Native | 0.674 | 44MB | 87.9 MB
 
+Spring:
+
+| Version | Boot time | Ram weight | Disk weight
+| --- | --- | --- | ---
+| Jar | 6s | 1MB but 279 JVM | 48.6MB
+| Fat Jar | ? | ? MB but 150MB JVM | ?
+| Native | ? | ? MB | ? MB
+
