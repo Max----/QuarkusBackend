@@ -129,7 +129,7 @@ Spring:
 
 | Version | Boot time | Ram weight | Disk weight
 | --- | --- | --- | ---
-| Jar | 6s | 1MB but 279 JVM | 48.6MB
-| Fat Jar | ? | ? MB but 150MB JVM | ?
-| Native | ? | ? MB | ? MB
+| Jar | 9s | 1MB but 279 JVM | 48.6MB
+| Fat Jar | 10s | 1MB but 198 JVM | 45MB
+| Native | 1.1s | 150 MB | 162 MB
 
